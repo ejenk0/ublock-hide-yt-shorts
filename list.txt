@@ -1,10 +1,10 @@
-! Title: Hide YouTube Shorts
-! Description: Hide all traces of YouTube shorts videos on YouTube
+! Title: Hide YouTube Shorts and Playables
+! Description: Hide all traces of YouTube shorts videos and YouTube Playables on YouTube
 ! Version: 2026.4.29
 ! Last modified: 2026-04-29 19:49
 ! Expires: 2 weeks (update frequency)
-! Homepage: https://github.com/gijsdev/ublock-hide-yt-shorts
-! License: https://github.com/gijsdev/ublock-hide-yt-shorts/blob/master/LICENSE.md
+! Homepage: https://github.com/ejenk0/ublock-hide-yt-shorts
+! License: https://github.com/ejenk0/ublock-hide-yt-shorts/blob/master/LICENSE.md
 
 ! Hide all videos with the shorts indicator
 www.youtube.com##ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]:upward(ytd-video-renderer)
@@ -52,3 +52,27 @@ www.youtube.com##ytm-chip-cloud-chip-renderer:has([aria-label="Shorts"])
 
 ! Hide shorts sections on search page
 m.youtube.com##ytm-shorts-lockup-view-model:upward(grid-shelf-view-model)
+
+!!! PLAYABLES !!!
+
+! Hide the playables shelf, including its header and "View all" button
+www.youtube.com##ytd-rich-section-renderer:has(ytd-mini-game-card-view-model)
+
+! Hide playables sections on search page
+www.youtube.com##ytd-mini-game-card-view-model:upward(grid-shelf-view-model)
+
+! Hide any remaining individual playable cards
+www.youtube.com##ytd-mini-game-card-view-model
+
+! Hide playables button in sidebar
+www.youtube.com##ytd-guide-entry-renderer:has(a[href="/playables"])
+! Tablet resolution
+www.youtube.com##ytd-mini-guide-entry-renderer:has(a[href="/playables"])
+
+!!! MOBILE PLAYABLES !!!
+
+! Hide the playables shelf, including its header and "View all" button
+m.youtube.com##ytm-rich-section-renderer:has(mini-game-card-view-model)
+
+! Hide any remaining individual playable cards
+m.youtube.com##mini-game-card-view-model
